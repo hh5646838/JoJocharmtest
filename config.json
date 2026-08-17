@@ -1,0 +1,84 @@
+{
+  "profile": {
+    "name": "JoJocharm",
+    "avatar": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%236b21a8' width='200' height='200'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='64' fill='%23fff' font-family='sans-serif'%3EJ%3C/text%3E%3C/svg%3E",
+    "wechatQrCode": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%231a1a2e' width='200' height='200'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='16' fill='%239ca3af' font-family='sans-serif'%3E微信二维码占位%3C/text%3E%3C/svg%3E",
+    "wechatName": "JoJocharm",
+    "bilibiliUrl": "https://space.bilibili.com/"
+  },
+  "floatingTexts": [
+    { "text": "鸡尾酒", "color": "#60a5fa", "rotation": -20, "left": "5%", "top": "15%", "delay": 0, "duration": 7 },
+    { "text": "摇滚乐", "color": "#f472b6", "rotation": 25, "right": "10%", "top": "30%", "delay": 0.5, "duration": 8 },
+    { "text": "茶", "color": "#34d399", "rotation": -15, "left": "12%", "top": "60%", "delay": 1, "duration": 9 },
+    { "text": "摄影", "color": "#fb923c", "rotation": 30, "right": "15%", "top": "50%", "delay": 1.5, "duration": 7.5 },
+    { "text": "游泳", "color": "#a78bfa", "rotation": -12, "left": "35%", "top": "75%", "delay": 2, "duration": 8.5 }
+  ],
+  "sections": [
+    {
+      "title": "我的作品",
+      "modules": [
+        {
+          "type": "horizontal",
+          "title": "摄影集",
+          "description": "记录生活中的美好瞬间",
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='300'%3E%3Crect fill='%231e3a5f' width='800' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%2360a5fa' font-family='sans-serif'%3E摄影集占位图%3C/text%3E%3C/svg%3E",
+          "link": "https://example.com/photos",
+          "borderColor": "rgba(59,130,246,0.5)"
+        },
+        {
+          "type": "vertical",
+          "title": "旅行日记",
+          "description": "探索世界的每一个角落",
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='600'%3E%3Crect fill='%234a1942' width='400' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%23f472b6' font-family='sans-serif'%3E旅行日记占位图%3C/text%3E%3C/svg%3E",
+          "link": "https://example.com/travel",
+          "borderColor": "rgba(236,72,153,0.5)"
+        },
+        {
+          "type": "square",
+          "title": "咖啡时光",
+          "description": "品味慢生活",
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%234a2c17' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23fb923c' font-family='sans-serif'%3E咖啡时光%3C/text%3E%3C/svg%3E",
+          "link": "https://example.com/coffee",
+          "borderColor": "rgba(251,146,60,0.5)"
+        },
+        {
+          "type": "square",
+          "title": "阅读清单",
+          "description": "好书推荐",
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%230f3d3e' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%2314b8a6' font-family='sans-serif'%3E阅读清单%3C/text%3E%3C/svg%3E",
+          "link": "https://example.com/books",
+          "borderColor": "rgba(20,184,166,0.5)"
+        }
+      ]
+    },
+    {
+      "title": "兴趣爱好",
+      "modules": [
+        {
+          "type": "horizontal",
+          "title": "调酒艺术",
+          "description": "探索鸡尾酒的无限可能",
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='300'%3E%3Crect fill='%232d1b4e' width='800' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%23a855f7' font-family='sans-serif'%3E调酒艺术占位图%3C/text%3E%3C/svg%3E",
+          "link": "https://example.com/cocktails",
+          "borderColor": "rgba(168,85,247,0.5)"
+        },
+        {
+          "type": "vertical",
+          "title": "音乐收藏",
+          "description": "摇滚乐的狂热爱好者",
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='600'%3E%3Crect fill='%234a1025' width='400' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%23f43f5e' font-family='sans-serif'%3E音乐收藏占位图%3C/text%3E%3C/svg%3E",
+          "link": "https://example.com/music",
+          "borderColor": "rgba(244,63,94,0.5)"
+        },
+        {
+          "type": "square",
+          "title": "茶道",
+          "description": "静心品茗",
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%2314532d' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%2322c55e' font-family='sans-serif'%3E茶道%3C/text%3E%3C/svg%3E",
+          "link": "https://example.com/tea",
+          "borderColor": "rgba(34,197,94,0.5)"
+        }
+      ]
+    }
+  ]
+}
