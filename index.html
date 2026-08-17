@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JoJocharm 星空主页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 静态星星背景 -->
+  <div class="star-bg" id="starBg"></div>
+
+  <!-- 漂浮星球容器 -->
+  <div class="planets-container" id="planetsContainer"></div>
+
+  <!-- 首页内容区 -->
+  <section class="page-home snap-start">
+    <!-- 漂浮文字容器 -->
+    <div class="floating-texts" id="floatingTexts"></div>
+
+    <!-- 个人资料头部 -->
+    <div class="profile-header" id="profileHeader"></div>
+
+    <!-- 向下箭头 -->
+    <a href="#bento-section" class="scroll-hint">
+      <span class="scroll-hint-text">探索更多</span>
+      <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- Bento 板块区 -->
+  <section id="bento-section" class="page-bento snap-start">
+    <div class="bento-wrapper" id="bentoWrapper"></div>
+  </section>
+
+  <script>
+    // ===== 配置加载 =====
+    let CONFIG = null;
+
+    async function loadConfig() {
+      try {
+        const res = await fetch('config.json');
+        CONFIG = await res.json();
+        renderAll();
+      } catch (err) {
+        console.error('Failed to load config.json:', err);
+        document.body.innerHTML = '<p style="color:#fff;text-align:center;margin-top:40vh;">加载配置失败，请检查 config.json 是否存在</p>';
+      }
+    }
+
+    // ===== 渲染入口 =====
+    function renderAll() {
+      renderStars();
+      renderPlanets();
+      renderFloatingTexts();
+      renderProfile();
+      renderBentoSections();
+    }
+
+    // ===== 星星背景 =====
+    function renderStars() {
+      const container = document.getElementById('starBg');
+      let dots = '';
+      for (let i = 0; i < 120; i++) {
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const size = Math.random() * 2 + 0.5;
+        const opacity = Math.random() * 0.6 + 0.2;
+        dots += `<div class="star-dot" style="left:${x}%;top:${y}%;width:${size}px;height:${size}px;opacity:${opacity}"></div>`;
+      }
+      container.innerHTML = dots;
+    }
+
+    // ===== 漂浮星球 =====
+    function renderPlanets() {
+      const planets = [
+        { size: 80, left: '10%', top: '15%', colors: ['#60a5fa', '#3b82f6', '#2563eb'], delay: 0, duration: 8 },
+        { size: 64, right: '15%', top: '25%', colors: ['#f472b6', '#ec4899', '#db2777'], delay: 1, duration: 10 },
+        { size: 96, left: '80%', bottom: '30%', colors: ['#fb923c', '#f97316', '#ea580c'], delay: 2, duration: 9 },
+        { size: 40, left: '5%', top: '40%', colors: ['#34d399', '#10b981', '#059669'], delay: 0.5, duration: 7 },
+      ];
+      const container = document.getElementById('planetsContainer');
+      container.innerHTML = planets.map(p => `
+        <div class="planet" style="
+          width:${p.size}px;height:${p.size}px;
+          ${p.left ? 'left:' + p.left : ''}${p.right ? 'right:' + p.right : ''};
+          ${p.top ? 'top:' + p.top : ''}${p.bottom ? 'bottom:' + p.bottom : ''};
+          background: radial-gradient(circle at 35% 35%, ${p.colors[0]}, ${p.colors[1]}, ${p.colors[2]});
+          animation-delay: ${p.delay}s;
+          animation-duration: ${p.duration}s;
+        "></div>
+      `).join('');
+    }
+
+    // ===== 漂浮文字 =====
+    function renderFloatingTexts() {
+      const container = document.getElementById('floatingTexts');
+      container.innerHTML = CONFIG.floatingTexts.map(t => `
+        <div class="floating-text" style="
+          color: ${t.color};
+          transform: rotate(${t.rotation}deg);
+          ${t.left ? 'left:' + t.left : ''}${t.right ? 'right:' + t.right : ''};
+          ${t.top ? 'top:' + t.top : ''}${t.bottom ? 'bottom:' + t.bottom : ''};
+          font-size: clamp(1rem, 2vw, 1.5rem);
+          animation-delay: ${t.delay}s;
+          animation-duration: ${t.duration}s;
+        ">${t.text}</div>
+      `).join('');
+    }
+
+    // ===== 个人资料 =====
+    function renderProfile() {
+      const p = CONFIG.profile;
+      const container = document.getElementById('profileHeader');
+      container.innerHTML = `
+        <div class="profile-card">
+          <img class="profile-avatar" src="${p.avatar}" alt="${p.name}" />
+          <h1 class="profile-name">${p.name}</h1>
+          <div class="profile-links">
+            ${p.wechatQrCode ? `<a class="profile-link wechat-link" data-qr="${p.wechatQrCode}" data-name="${p.wechatName}">微信</a>` : ''}
+            ${p.bilibiliUrl ? `<a class="profile-link bilibili-link" href="${p.bilibiliUrl}" target="_blank" rel="noopener">B站</a>` : ''}
+          </div>
+        </div>
+        <!-- 微信二维码弹窗 -->
+        <div class="qr-dialog" id="qrDialog">
+          <div class="qr-dialog-inner">
+            <button class="qr-close" id="qrClose">&times;</button>
+            <img id="qrImage" src="" alt="微信二维码" />
+            <p id="qrName"></p>
+          </div>
+        </div>
+      `;
+
+      // 微信二维码弹窗逻辑
+      const dialog = document.getElementById('qrDialog');
+      const qrImg = document.getElementById('qrImage');
+      const qrName = document.getElementById('qrName');
+      const closeBtn = document.getElementById('qrClose');
+
+      container.querySelectorAll('.wechat-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          qrImg.src = link.dataset.qr;
+          qrName.textContent = link.dataset.name;
+          dialog.classList.add('open');
+        });
+      });
+
+      closeBtn.addEventListener('click', () => dialog.classList.remove('open'));
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.classList.remove('open');
+      });
+    }
+
+    // ===== Bento 板块 =====
+    function renderBentoSections() {
+      const wrapper = document.getElementById('bentoWrapper');
+      wrapper.innerHTML = CONFIG.sections.map(section => `
+        <div class="bento-section-block">
+          <h2 class="bento-section-title">${section.title}</h2>
+          <div class="bento-grid">
+            ${section.modules.map(m => renderModule(m)).join('')}
+          </div>
+        </div>
+      `).join('') + `
+        <div class="bio-box">
+          <p>热爱生活，热爱创造。在这里分享我的摄影作品、旅行故事和生活感悟。每一张照片都承载着一段记忆，每一段文字都记录着成长的足迹。</p>
+        </div>
+      `;
+    }
+
+    function renderModule(m) {
+      const typeClass = m.type === 'horizontal' ? 'bento-horizontal' : m.type === 'vertical' ? 'bento-vertical' : 'bento-square';
+      const tag = m.link ? 'a' : 'div';
+      const attrs = m.link ? `href="${m.link}" target="_blank" rel="noopener noreferrer"` : '';
+      return `
+        <${tag} class="bento-module ${typeClass}" ${attrs} style="--border-color: ${m.borderColor}">
+          <div class="bento-bg" style="background-image: url('${m.image}')"></div>
+          <div class="bento-overlay"></div>
+          <div class="bento-content">
+            <h3>${m.title}</h3>
+            <p>${m.description}</p>
+          </div>
+        </${tag}>
+      `;
+    }
+
+    // 启动
+    loadConfig();
+  </script>
+</body>
+</html>
