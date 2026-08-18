@@ -131,7 +131,7 @@
           "type": "square",
           "title": "茶道",
           "description": "静心品茗",
-          "image": "https://collection.cloudinary.com/vljhnkvn/2c81a15d0b1eb2249f2b3d56c02989b8",
+          "image": "https://res.cloudinary.com/vljhnkvn/image/upload/v1787056136/Joy-Division.jpg",
           "link": "https://example.com/tea",
           "borderColor": "rgba(34,197,94,0.5)",
           "gradientFrom": "from-green-500",
