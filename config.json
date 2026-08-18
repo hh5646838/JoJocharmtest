@@ -121,7 +121,7 @@
           "type": "vertical",
           "title": "音乐收藏",
           "description": "摇滚乐的狂热爱好者",
-          "image": "https://res.cloudinary.com/vljhnkvn/image/upload/q_auto/v1787071665/cotail_jiggle.jpg",
+          "image": "https://res.cloudinary.com/vljhnkvn/image/upload/f_auto,q_auto/v1787071665/cotail_jiggle.jpg",
           "link": "https://example.com/music",
           "borderColor": "rgba(244,63,94,0.5)",
           "gradientFrom": "from-rose-600",
