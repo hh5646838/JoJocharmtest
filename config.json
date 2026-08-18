@@ -129,9 +129,9 @@
         },
         {
           "type": "square",
-          "title": "茶道",
-          "description": "静心品茗",
-          "image": "https://res.cloudinary.com/vljhnkvn/image/upload/v1787056136/Joy-Division.jpg",
+          "title": "摇滚乐",
+          "description": "孤独与疯狂",
+          "image": "https://res.cloudinary.com/vljhnkvn/image/upload/f_auto,q_auto/v1787056136/Joy-Division.jpg",
           "link": "https://example.com/tea",
           "borderColor": "rgba(34,197,94,0.5)",
           "gradientFrom": "from-green-500",
