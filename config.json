@@ -118,7 +118,7 @@
           "gradientTo": "to-fuchsia-600"
         },
         {
-          "type": "vertical",
+          "type": "square",
           "title": "音乐收藏",
           "description": "摇滚乐的狂热爱好者",
           "image": "https://res.cloudinary.com/vljhnkvn/image/upload/f_auto,q_auto/v1787071665/cotail_jiggle.jpg",
@@ -128,7 +128,7 @@
           "gradientTo": "to-red-600"
         },
         {
-          "type": "square",
+          "type": "horizontal",
           "title": "摇滚乐",
           "description": "孤独与疯狂",
           "image": "https://res.cloudinary.com/vljhnkvn/image/upload/q_auto/v1787056136/Joy-Division.jpg",
