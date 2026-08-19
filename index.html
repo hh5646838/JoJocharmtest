@@ -216,12 +216,14 @@
       });
 
       // Add text box at the end
-      const textBoxEl = document.createElement('div');
-      textBoxEl.className = 'text-box';
-      const textP = document.createElement('p');
-      textP.textContent = '热爱生活，热爱创造。在这里分享我的摄影作品、旅行故事和生活感悟。每一张照片都承载着一段记忆，每一段文字都记录着成长的足迹。';
-      textBoxEl.appendChild(textP);
-      sectionsContainer.appendChild(textBoxEl);
+      if (config.footerText) {
+        const textBoxEl = document.createElement('div');
+        textBoxEl.className = 'text-box';
+        const textP = document.createElement('p');
+        textP.textContent = config.footerText;
+        textBoxEl.appendChild(textP);
+        sectionsContainer.appendChild(textBoxEl);
+      }
     }
 
     // Dialog functionality
